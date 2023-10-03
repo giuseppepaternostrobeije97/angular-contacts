@@ -1,0 +1,120 @@
+.container {
+  position: relative;
+  .addButton {
+    border-radius: 10px;
+    border: 1px solid;
+    // width: 100%;
+    background-color: transparent;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-align: start;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+  }
+  .addModal {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='661' height='661' viewBox='0 0 200 200'%3E%3Cg %3E%3Cpolygon fill='%23ababab' points='100 57.1 64 93.1 71.5 100.6 100 72.1'/%3E%3Cpolygon fill='%23d4d4d4' points='100 57.1 100 72.1 128.6 100.6 136.1 93.1'/%3E%3Cpolygon fill='%23ababab' points='100 163.2 100 178.2 170.7 107.5 170.8 92.4'/%3E%3Cpolygon fill='%23d4d4d4' points='100 163.2 29.2 92.5 29.2 107.5 100 178.2'/%3E%3Cpath fill='%23FFFFFF' d='M100 21.8L29.2 92.5l70.7 70.7l70.7-70.7L100 21.8z M100 127.9L64.6 92.5L100 57.1l35.4 35.4L100 127.9z'/%3E%3Cpolygon fill='%239867c0' points='0 157.1 0 172.1 28.6 200.6 36.1 193.1'/%3E%3Cpolygon fill='%23b683df' points='70.7 200 70.8 192.4 63.2 200'/%3E%3Cpolygon fill='%23D6A1FF' points='27.8 200 63.2 200 70.7 192.5 0 121.8 0 157.2 35.3 192.5'/%3E%3Cpolygon fill='%23b683df' points='200 157.1 164 193.1 171.5 200.6 200 172.1'/%3E%3Cpolygon fill='%239867c0' points='136.7 200 129.2 192.5 129.2 200'/%3E%3Cpolygon fill='%23D6A1FF' points='172.1 200 164.6 192.5 200 157.1 200 157.2 200 121.8 200 121.8 129.2 192.5 136.7 200'/%3E%3Cpolygon fill='%239867c0' points='129.2 0 129.2 7.5 200 78.2 200 63.2 136.7 0'/%3E%3Cpolygon fill='%23D6A1FF' points='200 27.8 200 27.9 172.1 0 136.7 0 200 63.2 200 63.2'/%3E%3Cpolygon fill='%23b683df' points='63.2 0 0 63.2 0 78.2 70.7 7.5 70.7 0'/%3E%3Cpolygon fill='%23D6A1FF' points='0 63.2 63.2 0 27.8 0 0 27.8'/%3E%3C/g%3E%3C/svg%3E");
+    position: absolute;
+    z-index: 10;
+    height: 60vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 0.8rem;
+      label{
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+      input {
+        border: none;
+        border-bottom: 1px solid black;
+        border-radius: 3px;
+        outline: none;
+        text-align: center;
+        padding: 0.5rem 0;
+      }
+    }
+    .buttonContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 2rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .rubrica {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0;
+    // gap: 1rem;
+    li {
+      // border-top: 1px solid darkgray;
+      border-bottom: 1px solid darkgrey;
+      padding: 1rem 0;
+      position: relative;
+      a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .initials {
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          font-size: 1rem;
+          margin-right: 1rem;
+          border-bottom: 2px solid #635994;
+          border-top: 2px solid #635994;
+          padding: 0.2rem 0;
+          color: #635994;
+        }
+        .anagraph {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: start;
+          .name {
+            width: 100%;
+            font-size: 1.4rem;
+          }
+        }
+        .number {
+          margin-top: 0.5rem;
+        }
+      }
+      .delete {
+        position: absolute;
+        bottom: 18%;
+        right: 2px;
+        background-color: transparent;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

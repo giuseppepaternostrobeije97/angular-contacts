@@ -1,0 +1,27 @@
+<div *ngIf="contact" class="container">
+  <h2 class="title">Contact <br/> Details</h2>
+  <div>
+    <label for="contact-surname">Contact surname </label>
+    <input
+      id="contact-surname"
+      [(ngModel)]="contact.surname"
+      placeholder="surname"
+    />
+  </div>
+  <div>
+    <label for="contact-name">Contact name </label>
+    <input id="contact-name" [(ngModel)]="contact.name" placeholder="name" />
+  </div>
+  <div>
+    <label for="contact-number">Contact number </label>
+    <input
+      id="contact-number"
+      [(ngModel)]="contact.number"
+      placeholder="number"
+    />
+  </div>
+  <div class="buttonContainer">
+      <button type="button" (click)="save()">💾</button>
+      <button type="button" (click)="goBack()">🔙</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div id="search-component">
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="search contact..." class="searchbar"/>
+  
+    <ul class="search-result">
+      <li *ngFor="let contact of contacts$ | async" >
+        <a routerLink="/detail/{{contact.id}}">
+            <span class="initials">{{
+                initials(contact.name, contact.surname)
+              }}</span>
+              <div class="anagraph">
+                <span class="name">{{ contact.name }} {{ contact.surname }}</span>
+                <span class="number">{{ contact.number }}</span>
+              </div>
+        </a>
+      </li>
+    </ul>
+  </div>

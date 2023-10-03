@@ -1,0 +1,56 @@
+<h1 class="title">ALL <br/>CONTACTS</h1>
+<div class="container">
+  <button (click)="showAddButton()" class="addButton">ADD CONTACT ➕</button>
+  <div *ngIf="showAdd" class="addModal">
+    <div class="name">
+      <label for="new-contact">Contact name</label>
+      <input id="new-contact" #contactName />
+    </div>
+    <div class="surname">
+      <label for="new-contact">Contact surname</label>
+      <input id="new-contact" #contactSurname />
+    </div>
+    <div class="number">
+      <label for="new-contact">Contact number</label>
+      <input id="new-contact" #contactNumber />
+    </div>
+    <div class="buttonContainer">
+        <button
+          type="button"
+          class="add-button"
+          (click)="
+            add(contactName.value, contactSurname.value, +contactNumber.value);
+            contactName.value = '';
+            contactSurname.value = '';
+            contactNumber.value = ''
+          "
+        >
+          ➕
+        </button>
+        <button (click)="showAddButton()">🔙</button>
+    </div>
+  </div>
+  <app-contact-search></app-contact-search>
+
+  <ul class="rubrica">
+    <li *ngFor="let contact of contacts">
+      <a routerLink="/detail/{{ contact.id }}">
+        <span class="initials">{{
+          initials(contact.name, contact.surname)
+        }}</span>
+        <div class="anagraph">
+          <span class="name">{{ contact.name }} {{ contact.surname }}</span>
+          <span class="number">{{ contact.number }}</span>
+        </div>
+      </a>
+      <button
+        type="button"
+        class="delete"
+        title="delete contact"
+        (click)="delete(contact)"
+      >
+        🗑️
+      </button>
+    </li>
+  </ul>
+</div>
