@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
@@ -14,12 +14,16 @@ import {
 })
 export class ContactSearchComponent implements OnInit  {
 
+  @Output()
+  onChange : EventEmitter<string> = new EventEmitter<string>()
+
   constructor(private contactService: ContactService) {}
   contacts$!: Observable<Contact[]>;
   private searchTerms = new Subject<string>();
 
   search(term: string): void {
     this.searchTerms.next(term);
+    this.onChange.emit(term);
   }
 
   

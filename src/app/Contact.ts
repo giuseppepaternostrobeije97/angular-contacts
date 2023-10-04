@@ -3,4 +3,5 @@ export interface Contact {
     number: number;
     name:string;
     surname: string;
+    birthDate:Date;
 }

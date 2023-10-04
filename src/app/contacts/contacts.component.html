@@ -1,8 +1,69 @@
-<h1 class="title">ALL <br/>CONTACTS</h1>
+<h1 class="title">ALL <br />CONTACTS</h1>
 <div class="container">
   <button (click)="showAddButton()" class="addButton">ADD CONTACT ➕</button>
+
   <div *ngIf="showAdd" class="addModal">
-    <div class="name">
+    <!-- form -->
+    <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()">
+      <div class="name">
+        <label for="name"> Contact name </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          required
+        />
+        <span class="error" *ngIf="addContactForm.get('name')?.hasError('required') && addContactForm.get('name')?.touched">
+          Campo obbligatorio
+        </span>
+      </div>
+      <div class="surname">
+        <label for="surname"> Contact surname </label>
+        <input
+          type="text"
+          name="surname"
+          id="surname"
+          formControlName="surname"
+          required
+        />
+        <span class="error" *ngIf="addContactForm.get('surname')?.hasError('required') && addContactForm.get('surname')?.touched">
+          Campo obbligatorio
+        </span>
+      </div>
+      <div class="number">
+        <label for="number"> Contact number </label>
+        <input
+          type="text"
+          name="number"
+          id="number"
+          formControlName="number"
+          required
+        />
+        <span class="error" *ngIf="addContactForm.get('number')?.hasError('pattern') && addContactForm.get('number')?.touched">
+          Deve contenere 10 numeri
+        </span>
+      </div>
+      <div class="birthDate">
+        <label for="birthDate"> Date of birth </label>
+        <input
+          type="date"
+          name="birthDate"
+          id="birthDate"
+          formControlName="birthDate"
+          required
+        />
+        <span class="error" *ngIf="addContactForm.get('birthDate')?.hasError('pastDate') && addContactForm.get('birthDate')?.touched">
+          La data non deve essere nel futuro.
+        </span>
+      </div>
+      <div class="buttonContainer">
+        <button type="submit" [disabled]="!addContactForm.valid">ADD CONTACT</button>
+      </div>
+    </form>
+
+
+    <!-- <div class="name">
       <label for="new-contact">Contact name</label>
       <input id="new-contact" #contactName />
     </div>
@@ -28,11 +89,12 @@
           ➕
         </button>
         <button (click)="showAddButton()">🔙</button>
-    </div>
+    </div> -->
   </div>
-  <app-contact-search></app-contact-search>
 
-  <ul class="rubrica">
+  <app-contact-search (onChange)="onSearchChange($event)"></app-contact-search>
+
+  <ul *ngIf="showRubrica" class="rubrica">
     <li *ngFor="let contact of contacts">
       <a routerLink="/detail/{{ contact.id }}">
         <span class="initials">{{
