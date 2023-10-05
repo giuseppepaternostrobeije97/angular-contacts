@@ -41,6 +41,7 @@ export class ContactsComponent implements OnInit {
   
 
   onSubmit() {
+    console.log(this.addContactForm.value)
     this.add(this.addContactForm.value);
   }
 

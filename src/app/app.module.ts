@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { PhonePipe } from './phone.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { ContactSearchComponent } from './contact-search/contact-search.componen
     ContactDetailsComponent,
     AlertComponent,
     ContactSearchComponent,
+    PhonePipe
   ],
   imports: [
     BrowserModule,

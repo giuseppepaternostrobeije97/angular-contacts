@@ -60,36 +60,8 @@
       <div class="buttonContainer">
         <button type="submit" [disabled]="!addContactForm.valid">ADD CONTACT</button>
       </div>
-    </form>
-
-
-    <!-- <div class="name">
-      <label for="new-contact">Contact name</label>
-      <input id="new-contact" #contactName />
-    </div>
-    <div class="surname">
-      <label for="new-contact">Contact surname</label>
-      <input id="new-contact" #contactSurname />
-    </div>
-    <div class="number">
-      <label for="new-contact">Contact number</label>
-      <input id="new-contact" #contactNumber />
-    </div>
-    <div class="buttonContainer">
-        <button
-          type="button"
-          class="add-button"
-          (click)="
-            add(contactName.value, contactSurname.value, +contactNumber.value);
-            contactName.value = '';
-            contactSurname.value = '';
-            contactNumber.value = ''
-          "
-        >
-          ➕
-        </button>
-        <button (click)="showAddButton()">🔙</button>
-    </div> -->
+      <button class="backBtn" (click)="showAddButton()">🔙</button>
+    </form>    
   </div>
 
   <app-contact-search (onChange)="onSearchChange($event)"></app-contact-search>
@@ -102,7 +74,10 @@
         }}</span>
         <div class="anagraph">
           <span class="name">{{ contact.name }} {{ contact.surname }}</span>
-          <span class="number">{{ contact.number }}</span>
+          <span class="birthDate">
+            {{contact.birthDate | date:'dd/MM/yyyy':'it-IT'}}
+          </span>
+          <span class="number">{{ contact.number | phone}}</span>
         </div>
       </a>
       <button

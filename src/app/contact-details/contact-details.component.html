@@ -1,5 +1,8 @@
 <div *ngIf="contact" class="container">
-  <h2 class="title">Contact <br/> Details</h2>
+  <h2 class="title">
+    Contact <br />
+    Details
+  </h2>
   <div>
     <label for="contact-surname">Contact surname </label>
     <input
@@ -20,8 +23,16 @@
       placeholder="number"
     />
   </div>
+  <div>
+    <label for="contact-birthDate">Contact birth date </label>
+    <input
+      type="date"
+      id="contact-birthDate"
+      [(ngModel)]="contact.birthDate"
+    />
+  </div>
   <div class="buttonContainer">
-      <button type="button" (click)="save()">💾</button>
-      <button type="button" (click)="goBack()">🔙</button>
+    <button type="button" (click)="save()">💾</button>
+    <button type="button" (click)="goBack()">🔙</button>
   </div>
 </div>
