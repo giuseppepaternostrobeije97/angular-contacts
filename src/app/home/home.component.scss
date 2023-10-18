@@ -1,0 +1,25 @@
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title{
+        color: blueviolet;
+        font-weight: bolder;
+        letter-spacing: 1rem;
+    }
+    a{
+        border-radius: 10px;
+        border: 2px solid blueviolet;
+        padding: 1rem 2rem;
+        color: blueviolet;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all .3s ease;
+        &:hover{
+            transform: scale(105%);
+        }
+    }
+}

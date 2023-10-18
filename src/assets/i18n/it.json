@@ -1,0 +1,11 @@
+{
+    "homeTitle": "RUBRICA",
+    "contacts": "CONTATTI",
+    "addContact":"AGGIUNGI CONTATTO",
+    "searchContact":"Cerca contatto",
+    "name": "Nome",
+    "surname":"Cognome",
+    "number":"Numero",
+    "birthDay":"Data di nascita",
+    "contactDetails":"Dettagli contatto"
+}

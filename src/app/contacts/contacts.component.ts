@@ -3,6 +3,7 @@ import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { AlertService } from '../alert.service';
 import { FormGroup, FormControl, Validators, AbstractControl,ValidationErrors } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -12,7 +13,8 @@ import { FormGroup, FormControl, Validators, AbstractControl,ValidationErrors } 
 export class ContactsComponent implements OnInit {
   constructor(
     private contactService: ContactService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private actRoute: ActivatedRoute
   ) {}
 
   contacts: Contact[] = [];
@@ -46,8 +48,11 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getContacts();
-  }
+    this.actRoute.data.subscribe(data => {
+      console.log('check resolver data');
+      console.log(data);  
+      this.contacts = data['contactResolver'];
+    })  }
 
   onSelect(contact: Contact): void {
     this.selectedContact = contact;
